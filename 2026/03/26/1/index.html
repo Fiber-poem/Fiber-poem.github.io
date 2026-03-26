@@ -109,25 +109,6 @@
 
 
 
-<div class="poetry-header">
-  <nav class="poetry-nav">
-    <a href="/">首页</a>
-    <a href="/archives/">归档</a>
-  </nav>
-
-  <div class="poetry-hero">
-    <div class="poetry-avatar-shell">
-      <img class="poetry-avatar" src="/images/profile.jpg" alt="Fiber 头像">
-    </div>
-    <div class="poetry-copy">
-      <p class="poetry-kicker">Poetry Journal</p>
-      <p class="poetry-intro" data-intro-root>
-        <span data-intro-text>一位工科生尝试在自己的时刻，用自己的文字，记录自己的思绪～</span>
-        <span class="poetry-intro-cursor" aria-hidden="true">_</span>
-      </p>
-    </div>
-  </div>
-</div>
 
 </header>
     </div>
@@ -162,6 +143,32 @@
 <p>滋润寻常日子。</p>
 
       </article>
+
+      <section class="interaction-panel detail-panel">
+        <div class="like-box">
+          <button class="like-button is-disabled" type="button">
+            <span class="like-icon">♥</span>
+            <span>点赞</span>
+          </button>
+          <p class="like-count">GitHub 登录接入后可用</p>
+          <p class="interaction-note">连接 GitHub 后可进行互动</p>
+        </div>
+
+        <div class="comment-box">
+          <div class="comment-head">
+            <h2>评论区</h2>
+            <p>写下你读完这一首后的感受</p>
+          </div>
+
+          <form class="comment-form">
+            <textarea rows="4" maxlength="200" placeholder="登录 GitHub 后评论" disabled></textarea>
+            <div class="form-foot">
+              <span id="comment-tip">评论区已连接 GitHub 登录评论</span>
+              <button class="submit-button is-disabled" type="button">发布评论</button>
+            </div>
+          </form>
+        </div>
+      </section>
   <section class="poetry-comments-wrap">
     <script
       src="https://giscus.app/client.js"
@@ -221,6 +228,20 @@
     if (!introRoot || !introTextNode) return;
 
     var fullText = introTextNode.textContent.trim();
+    var probe = document.createElement('span');
+    var styles = window.getComputedStyle(introRoot);
+    probe.textContent = fullText;
+    probe.style.position = 'absolute';
+    probe.style.visibility = 'hidden';
+    probe.style.whiteSpace = 'nowrap';
+    probe.style.font = styles.font;
+    probe.style.letterSpacing = styles.letterSpacing;
+    probe.style.lineHeight = styles.lineHeight;
+    document.body.appendChild(probe);
+    introRoot.style.width = Math.ceil(probe.getBoundingClientRect().width + 18) + 'px';
+    introRoot.style.maxWidth = '100%';
+    document.body.removeChild(probe);
+
     introTextNode.textContent = '';
 
     var index = 0;
