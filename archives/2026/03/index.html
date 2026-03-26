@@ -205,65 +205,7 @@
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
 </noscript>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    var introRoot = document.querySelector('[data-intro-root]');
-    var introTextNode = document.querySelector('[data-intro-text]');
-    if (!introRoot || !introTextNode) return;
 
-    var fullText = introTextNode.textContent.trim();
-    function applyIntroWidth() {
-      if (window.matchMedia('(max-width: 900px)').matches) {
-        introRoot.style.width = '100%';
-        introRoot.style.maxWidth = '100%';
-        return;
-      }
-
-      var probe = document.createElement('span');
-      var styles = window.getComputedStyle(introRoot);
-      probe.textContent = fullText;
-      probe.style.position = 'absolute';
-      probe.style.visibility = 'hidden';
-      probe.style.whiteSpace = 'nowrap';
-      probe.style.font = styles.font;
-      probe.style.letterSpacing = styles.letterSpacing;
-      probe.style.lineHeight = styles.lineHeight;
-      document.body.appendChild(probe);
-      introRoot.style.width = Math.ceil(probe.getBoundingClientRect().width + 18) + 'px';
-      introRoot.style.maxWidth = '100%';
-      document.body.removeChild(probe);
-    }
-
-    applyIntroWidth();
-    window.addEventListener('resize', applyIntroWidth);
-
-    introTextNode.textContent = '';
-
-    var index = 0;
-    function step() {
-      if (index <= fullText.length) {
-        introTextNode.textContent = fullText.slice(0, index);
-        var currentChar = fullText.charAt(index - 1);
-        index += 1;
-        var delay = 155;
-
-        if (currentChar === '，' || currentChar === ',' || currentChar === '、') delay += 320;
-        if (currentChar === '。' || currentChar === '！' || currentChar === '？' || currentChar === '～') delay += 460;
-
-        window.setTimeout(step, delay);
-        return;
-      }
-
-      window.setTimeout(function () {
-        introTextNode.textContent = '';
-        index = 0;
-        window.setTimeout(step, 320);
-      }, 1900);
-    }
-
-    step();
-  });
-</script>
 
 </body>
 </html>
