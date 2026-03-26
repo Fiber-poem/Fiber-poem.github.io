@@ -1384,7 +1384,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #26edff;
+  background: #fff;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2949,9 +2949,7 @@ img {
 }
 .poem-card h3 {
   font-size: 1.35rem;
-  transition: color 160ms ease;
 }
-.poem-card:hover h3,
 .read-more,
 .back-link:hover {
   color: var(--accent);
@@ -2974,7 +2972,7 @@ img {
 .poem-excerpt > * + * {
   margin-top: 0.25em;
 }
-.poem-excerpt > *:nth-child(n + 5) {
+.poem-excerpt > *:nth-child(n + 3) {
   display: none;
 }
 .read-more {
