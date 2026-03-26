@@ -1384,7 +1384,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #fff;
+  background: #9ea2ff;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2964,6 +2964,9 @@ img {
   grid-column: 1/-1;
   margin: 0;
   color: #3f3f38;
+  line-height: 1.9;
+  max-height: 3.8em;
+  overflow: hidden;
 }
 .poem-excerpt > * {
   margin: 0;
