@@ -1384,7 +1384,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #d5ecff;
+  background: #fff;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -3036,7 +3036,7 @@ body {
   width: 100%;
   max-width: 820px;
   margin: 0 auto 26px;
-  transform: translateX(-64px);
+  transform: translateX(-96px);
 }
 .detail-head {
   margin-bottom: 30px;
@@ -3044,7 +3044,7 @@ body {
   margin-inline: auto;
   text-align: center;
   width: 100%;
-  transform: translateX(-64px);
+  transform: translateX(-96px);
 }
 .poem-article {
   max-width: 820px;
@@ -3054,18 +3054,22 @@ body {
   background: linear-gradient(180deg, rgba(237,227,216,0.92), rgba(231,220,207,0.94));
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.14), 0 8px 18px rgba(110,85,62,0.04);
   font-size: 1.02rem;
-  line-height: 1.95;
+  line-height: 1.85;
   white-space: pre-wrap;
   margin-inline: auto;
   text-align: center;
   width: 100%;
-  transform: translateX(-64px);
+  transform: translateX(-96px);
 }
-.poem-article p {
-  margin: 0 0 0.75em;
+.poem-article > #more {
+  display: none;
 }
-.poem-article p:last-child {
-  margin-bottom: 0;
+.poem-article > * {
+  margin: 0;
+  line-height: 1.85;
+}
+.poem-article > * + * {
+  margin-top: 0.72em;
 }
 .interaction-panel {
   display: grid;
@@ -3074,7 +3078,7 @@ body {
   max-width: 1040px;
   margin-inline: auto;
   width: 100%;
-  transform: translateX(-64px);
+  transform: translateX(-96px);
 }
 .like-box,
 .comment-box,
