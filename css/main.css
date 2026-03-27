@@ -1384,7 +1384,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #9ea2ff;
+  background: #ffa2ff;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2931,10 +2931,11 @@ img {
 .section-head {
   display: flex;
   align-items: baseline;
-  justify-content: space-between;
+  justify-content: center;
   gap: 16px;
   padding-bottom: 12px;
   border-bottom: 1px solid var(--line);
+  text-align: center;
 }
 .poem-grid {
   display: grid;
@@ -2942,10 +2943,12 @@ img {
 }
 .poem-card {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 10px 20px;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  gap: 10px;
   padding: 20px 0;
   border-bottom: 1px solid var(--line);
+  text-align: center;
 }
 .poem-card h3 {
   font-size: 1.35rem;
@@ -2958,15 +2961,15 @@ img {
   margin: 4px 0 0;
   color: var(--muted);
   font-size: 0.78rem;
-  align-self: start;
+  align-self: center;
 }
 .poem-excerpt {
-  grid-column: 1/-1;
   margin: 0;
   color: #3f3f38;
   line-height: 1.9;
   max-height: 3.8em;
   overflow: hidden;
+  text-align: center;
 }
 .poem-excerpt > * {
   margin: 0;
@@ -2979,7 +2982,6 @@ img {
   display: none;
 }
 .read-more {
-  grid-column: 1/-1;
   width: fit-content;
   font-size: 0.78rem;
   letter-spacing: 0.04em;
@@ -2996,6 +2998,7 @@ img {
 .detail-head {
   padding: 24px 0 24px;
   border-bottom: 1px solid var(--line);
+  text-align: center;
 }
 .detail-meta {
   margin: 0 0 14px;
@@ -3007,6 +3010,7 @@ img {
   white-space: pre-wrap;
   font-size: 1.12rem;
   line-height: 2;
+  text-align: center;
 }
 .poem-article > #more {
   display: none;
