@@ -1384,7 +1384,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #ffa2ff;
+  background: #b8daa3;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2931,11 +2931,11 @@ img {
 .section-head {
   display: flex;
   align-items: baseline;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 16px;
   padding-bottom: 12px;
   border-bottom: 1px solid var(--line);
-  text-align: center;
+  text-align: left;
 }
 .poem-grid {
   display: grid;
@@ -2943,12 +2943,11 @@ img {
 }
 .poem-card {
   display: grid;
-  grid-template-columns: 1fr;
-  justify-items: center;
-  gap: 10px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px 20px;
   padding: 20px 0;
   border-bottom: 1px solid var(--line);
-  text-align: center;
+  text-align: left;
 }
 .poem-card h3 {
   font-size: 1.35rem;
@@ -2961,15 +2960,16 @@ img {
   margin: 4px 0 0;
   color: var(--muted);
   font-size: 0.78rem;
-  align-self: center;
+  align-self: start;
 }
 .poem-excerpt {
+  grid-column: 1/-1;
   margin: 0;
   color: #3f3f38;
   line-height: 1.9;
   max-height: 3.8em;
   overflow: hidden;
-  text-align: center;
+  text-align: left;
 }
 .poem-excerpt > * {
   margin: 0;
@@ -2982,6 +2982,7 @@ img {
   display: none;
 }
 .read-more {
+  grid-column: 1/-1;
   width: fit-content;
   font-size: 0.78rem;
   letter-spacing: 0.04em;
@@ -3025,9 +3026,11 @@ img {
 .detail-comments {
   padding-top: 22px;
   border-top: 1px solid var(--line);
+  text-align: center;
 }
 .comment-head {
   margin-bottom: 12px;
+  text-align: center;
 }
 .comment-head p {
   margin: 0;
