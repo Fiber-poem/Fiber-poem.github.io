@@ -1384,7 +1384,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #b8daa3;
+  background: #e7ffff;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2999,7 +2999,7 @@ img {
 .detail-head {
   padding: 24px 0 24px;
   border-bottom: 1px solid var(--line);
-  text-align: center;
+  text-align: left;
 }
 .detail-meta {
   margin: 0 0 14px;
@@ -3011,7 +3011,7 @@ img {
   white-space: pre-wrap;
   font-size: 1.12rem;
   line-height: 2;
-  text-align: center;
+  text-align: left;
 }
 .poem-article > #more {
   display: none;
@@ -3026,11 +3026,11 @@ img {
 .detail-comments {
   padding-top: 22px;
   border-top: 1px solid var(--line);
-  text-align: center;
+  text-align: left;
 }
 .comment-head {
   margin-bottom: 12px;
-  text-align: center;
+  text-align: left;
 }
 .comment-head p {
   margin: 0;
