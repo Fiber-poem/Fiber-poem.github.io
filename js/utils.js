@@ -19,6 +19,24 @@ HTMLElement.prototype.wrap = function(wrapper) {
 
 NexT.utils = {
 
+  smoothScrollTo(target, top, onComplete = () => {}) {
+    if (!target) return;
+    const supportsSmoothScroll = 'scrollBehavior' in document.documentElement.style;
+    if (typeof target.scrollTo === 'function') {
+      target.scrollTo({
+        top,
+        behavior: supportsSmoothScroll ? 'smooth' : 'auto'
+      });
+    } else {
+      target.scrollTop = top;
+    }
+    if (supportsSmoothScroll) {
+      window.setTimeout(onComplete, 500);
+    } else {
+      onComplete();
+    }
+  },
+
   registerExtURL() {
     document.querySelectorAll('span.exturl').forEach(element => {
       const link = document.createElement('a');
@@ -193,12 +211,7 @@ NexT.utils = {
     }, { passive: true });
 
     backToTop?.addEventListener('click', () => {
-      window.anime({
-        targets  : document.scrollingElement,
-        duration : 500,
-        easing   : 'linear',
-        scrollTop: 0
-      });
+      this.smoothScrollTo(document.scrollingElement, 0);
     });
   },
 
@@ -258,12 +271,7 @@ NexT.utils = {
         }, 1000);
         if (!CONFIG.stickytabs) return;
         const offset = nav.parentNode.getBoundingClientRect().top + window.scrollY + 10;
-        window.anime({
-          targets  : document.scrollingElement,
-          duration : 500,
-          easing   : 'linear',
-          scrollTop: offset
-        });
+        this.smoothScrollTo(document.scrollingElement, offset);
       });
     });
 
@@ -311,14 +319,8 @@ NexT.utils = {
       element.addEventListener('click', event => {
         event.preventDefault();
         const offset = target.getBoundingClientRect().top + window.scrollY;
-        window.anime({
-          targets  : document.scrollingElement,
-          duration : 500,
-          easing   : 'linear',
-          scrollTop: offset,
-          complete : () => {
-            history.pushState(null, document.title, element.href);
-          }
+        this.smoothScrollTo(document.scrollingElement, offset, () => {
+          history.pushState(null, document.title, element.href);
         });
       });
       return target;
@@ -367,12 +369,8 @@ NexT.utils = {
     // Scrolling to center active TOC element if TOC content is taller then viewport.
     const tocElement = document.querySelector(CONFIG.scheme === 'Pisces' || CONFIG.scheme === 'Gemini' ? '.sidebar-panel-container' : '.sidebar');
     if (!document.querySelector('.sidebar-toc-active')) return;
-    window.anime({
-      targets  : tocElement,
-      duration : 200,
-      easing   : 'linear',
-      scrollTop: tocElement.scrollTop - (tocElement.offsetHeight / 2) + target.getBoundingClientRect().top - tocElement.getBoundingClientRect().top
-    });
+    const scrollTop = tocElement.scrollTop - (tocElement.offsetHeight / 2) + target.getBoundingClientRect().top - tocElement.getBoundingClientRect().top;
+    this.smoothScrollTo(tocElement, scrollTop);
   },
 
   updateSidebarPosition() {

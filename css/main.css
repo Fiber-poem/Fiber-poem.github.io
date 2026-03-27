@@ -1384,7 +1384,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #1dff71;
+  background: #6a8fc2;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2814,7 +2814,6 @@ header.header {
 .sub-menu .menu-item {
   display: inline-block;
 }
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:wght@400;500;600;700&display=swap");
 :root {
   --bg: #fbfbf8;
   --panel: #fff;
@@ -2834,7 +2833,7 @@ body {
   overflow-x: hidden;
   background: var(--bg);
   color: var(--text);
-  font-family: "Source Serif 4", "Noto Serif SC", serif;
+  font-family: "Noto Serif SC", "Songti SC", "STSong", "Source Han Serif SC", serif;
   line-height: 1.75;
 }
 .headband,
@@ -2915,7 +2914,7 @@ img {
 .back-link,
 .comment-head p,
 .read-more {
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "SFMono-Regular", "Menlo", "Monaco", "Courier New", monospace;
 }
 .section-kicker {
   margin: 0;

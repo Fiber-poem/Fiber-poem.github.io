@@ -12,12 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
     top = Number(top);
     // If the page opens with a specific hash, just jump out
     if (!isNaN(top) && location.hash === '') {
-      // Auto scroll to the position
-      window.anime({
-        targets  : document.scrollingElement,
-        duration : 200,
-        easing   : 'linear',
-        scrollTop: top
+      document.scrollingElement.scrollTo({
+        top,
+        behavior: 'smooth'
       });
     }
   };
@@ -36,17 +33,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Save the position by clicking the icon
     link.addEventListener('click', () => {
       doSaveScroll();
-      window.anime({
-        targets : link,
-        duration: 200,
-        easing  : 'linear',
-        top     : -30,
-        complete: () => {
-          setTimeout(() => {
-            link.style.top = '';
-          }, 400);
-        }
-      });
+      link.style.top = '-30px';
+      setTimeout(() => {
+        link.style.top = '';
+      }, 400);
     });
     scrollToMark();
     document.addEventListener('pjax:success', scrollToMark);
