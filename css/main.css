@@ -1384,7 +1384,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #e7ffff;
+  background: #ffde7d;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2871,6 +2871,7 @@ img {
 }
 .site-frame-narrow {
   max-width: 680px;
+  margin: 0;
 }
 .hero {
   display: grid;
